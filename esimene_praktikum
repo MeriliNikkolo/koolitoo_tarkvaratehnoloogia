@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="kujundus.css">
+</head>
+
+<body>
+<h1>Ametnike põhipalgad</h1>
+</body>
+<p> 
+<img src="https://image.shutterstock.com/image-photo/euro-money-cash-background-banknotes-260nw-768058264.jpg">
+<p>
+<body>
+<p>
+<p>Klikka päismikul, et sortida andmeid (suuremast väiksemaks ja vastupidi või tähestiku alusel)</p>
+<p>
+ <table id="mytable">
+ <tr>
+  <th onclick="sortTable(0)">Asutus</th>
+  <th onclick="sortTable(1)">Ametikoht</th>
+  <th onclick="sortTable(2)">Põhipalk</th>
+  </tr>
+	<tr>
+    <td>Andmekaitseinspektsioon</td>
+    <td>õigusdirektor</td>
+    <td>2626</td>
+  </tr>
+  <tr>
+    <td>Harju maakohus</td>
+    <td>haldusjuht</td>
+    <td>1700</td>
+  </tr>
+  <tr>
+    <td>Häirekeskus</td>
+    <td>juhataja</td>
+    <td>2500</td>
+	</tr>
+  <tr>
+    <td>Justiitsministeerium</td>
+    <td>minister</td>
+    <td>5243</td>
+</table> 
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("mytable");
+  switching = true;
+    dir = "asc";
+   while (switching) {
+       switching = false;
+    rows = table.rows;
+       for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+           if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+           switchcount ++;
+    } else {
+            if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</script>
+
+<p>
+<a href="https://opendata.riik.ee">Allikas avaandmete portaal</a>
+</body>
+</html>
+
